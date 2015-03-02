@@ -4,7 +4,7 @@ development:
   database: myflix_development
   pool: 5
   username: tomohung
-  password: kawai
+  password: 
 
 test:
   adapter: postgresql
@@ -12,4 +12,4 @@ test:
   database: myflix_test
   pool: 5
   username: tomohung
-  password: kawai
+  password: 
