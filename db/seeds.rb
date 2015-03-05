@@ -25,4 +25,4 @@ end
   v.save
 end
 
-admin = User.create(email: 'admin@tomohung.com', full_name: 'admin', password: 'aaa')
+admin = User.create(email: 'admin@admin.com', full_name: 'admin', password: 'aaa')

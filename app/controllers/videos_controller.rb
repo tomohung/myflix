@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
 
   def index
+    redirect_to sign_in_path if !logged_in?
     @categories = Category.all
   end
 
