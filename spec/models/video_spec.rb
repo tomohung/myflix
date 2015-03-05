@@ -37,6 +37,5 @@ describe Video do
       keroro = Video.create(title: 'Keror', description: 'Cartoon', created_at: 4.minute.ago)
       expect(Video.search_by_title('')).to eq([])
     end
-  end
- 
+  end 
 end
