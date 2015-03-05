@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to home_path if logged_in?
   end
 
   def create
@@ -8,9 +9,10 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to home_path
+      redirect_to home_path, notice: 'You have signed in.'
     else
-      render :new
+      flash[:error] = 'Invalid username or password.'
+      redirect_to sign_in_path
     end
   end
 

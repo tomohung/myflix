@@ -1,7 +1,8 @@
 class VideosController < ApplicationController
 
+  before_filter :require_logged_in
+
   def index
-    redirect_to sign_in_path if !logged_in?
     @categories = Category.all
   end
 

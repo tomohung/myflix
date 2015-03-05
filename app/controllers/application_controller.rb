@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :logged_in?, :current_user
+
+  def require_logged_in
+    if !logged_in?
+      redirect_to sign_in_path
+    end
+  end
   
   def logged_in?
     !!current_user

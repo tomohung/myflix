@@ -17,7 +17,7 @@ Myflix::Application.routes.draw do
   resources :users, only: [:create]
   
   get 'sign_in', to: 'sessions#new'
-  delete 'logout', to: 'sessions#destroy'
+  get 'sign_out', to: 'sessions#destroy'
   resources :sessions, only: [:create]
 
 end
