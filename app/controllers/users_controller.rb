@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit!)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_path
+      redirect_to sign_in_path
     else
       @error_messages = @user.errors.full_messages
       render 'new'

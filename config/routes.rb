@@ -16,6 +16,6 @@ Myflix::Application.routes.draw do
   get 'register', to: "users#new"
   resources :users, only: [:create]
   
-
+  get 'sign_in', to: 'sessions#new'
 
 end
