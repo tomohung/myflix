@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
 
+  before_filter :require_logged_in
+
   def index
     @categories = Category.all
   end

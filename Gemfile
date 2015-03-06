@@ -10,6 +10,9 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'pg'
 
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap_form'
+
 group :development do
   gem 'thin'
   gem "better_errors"
@@ -30,4 +33,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-
