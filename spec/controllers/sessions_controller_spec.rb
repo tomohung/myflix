@@ -18,8 +18,9 @@ describe SessionsController do
 
   describe 'POST create' do
     context 'with authenticated' do
-      before do 
-        user = Fabricate(:user)
+      
+      let(:user) { Fabricate(:user) } 
+      before do   
         post :create, email: user.email, password: user.password
       end
 
@@ -28,7 +29,7 @@ describe SessionsController do
       end
 
       it 'sets session[:user_id]' do
-        expect(session[:user_id]).to eq(User.first.id)
+        expect(session[:user_id]).to eq(user.id)
       end
 
       it 'sets notice' do
