@@ -10,9 +10,16 @@ cat_comedy = Category.create(title: 'TV Comedies', description: 'tv comedies')
 cat_drama = Category.create(title: 'TV Dramas', description: 'tv dramas')
 cat_reality = Category.create(title: 'Reality TV', description: 'reality tv')
 
+admin = User.create(email: 'admin@admin.com', full_name: 'admin', password: 'aaa')
+
 10.times do |index|
   v = cat_comedy.videos.build(title: "South Park - #{index}", description: 'funny cartoon', small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
   v.save
+
+  5.times do
+    review = Review.new(user: admin, video: v, context: "cool video", rating: (1..5).to_a.sample )
+    review.save
+  end
 end
 
 10.times do |index|
@@ -25,4 +32,5 @@ end
   v.save
 end
 
-admin = User.create(email: 'admin@admin.com', full_name: 'admin', password: 'aaa')
+
+
