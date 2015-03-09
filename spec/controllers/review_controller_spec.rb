@@ -14,7 +14,7 @@ describe ReviewsController do
       end
 
       context 'with valid input' do
-        
+    
         before do
           post :create, review: Fabricate.attributes_for(:review), video_id: video.id
         end
@@ -42,6 +42,7 @@ describe ReviewsController do
           post :create, review: {context: Faker::Lorem::paragraph }, video_id: video.id
           expect(response).to render_template('videos/show')
         end
+        
         it 'should not create review if context is blank' do
           post :create, review: {rating: (1..5).to_a.sample }, video_id: video.id
           expect(response).to render_template('videos/show')

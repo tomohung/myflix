@@ -6,7 +6,6 @@ describe VideosController do
     
     context 'with authentication' do
       
-      let(:video) { Fabricate(:video) }
       let(:user) { Fabricate(:user)}
       before do
         session[:user_id] = user.id 
