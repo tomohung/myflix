@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     review = @video.reviews.new(set_params.merge!(user: current_user))
     
     if review.save
-      redirect_to video
+      redirect_to @video
     else
       @reviews = @video.reviews.reload
       render 'videos/show'
