@@ -31,6 +31,3 @@ end
   v = cat_reality.videos.build(title: "Reality - #{index}", description: 'Monk is still a monk.', small_cover_url: '/tmp/monk.jpg', large_cover_url: '/tmp/monk_large.jpg')
   v.save
 end
-
-
-
