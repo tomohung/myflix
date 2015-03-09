@@ -3,15 +3,34 @@ require 'spec_helper'
 describe VideosController do 
   let(:video) { Fabricate(:video) } 
   describe 'GET show' do
-    it 'set @video if authenticated users' do
-      session[:user_id] = Fabricate(:user).id
-      get :show, id: video.id
-      expect(assigns(:video)).to eq(video)
+    
+    context 'with authentication' do
+      
+      let(:user) { Fabricate(:user)}
+      before do
+        session[:user_id] = user.id 
+      end
+
+      it 'sets @video' do
+        get :show, id: video.id
+        expect(assigns(:video)).to eq(video)
+      end
+
+      it 'sets @reviews' do
+        
+        review1 = Fabricate(:review, video: video, user: user)
+        review2 = Fabricate(:review, video: video, user: user)
+        get :show, id: video.id
+        expect(assigns(:reviews)).to match_array([review1, review2])
+
+      end
     end
 
-    it 'redirect to sign in page if unauthenticated' do
-      get :show, id: video.id
-      expect(response).to redirect_to sign_in_path
+    context 'with unauthentication' do
+      it 'redirect to sign in page' do
+        get :show, id: video.id
+        expect(response).to redirect_to sign_in_path
+      end
     end
 
   end
