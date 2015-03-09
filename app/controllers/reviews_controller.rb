@@ -1,12 +1,17 @@
 class ReviewsController < ApplicationController
 
+  before_filter :require_logged_in
+
   def create
     @video = Video.find(params[:video_id])    
-    @review = Review.new(set_params)
-    @review.user = current_user
-    @review.video = @video
-    @review.save
-    redirect_to @video
+    review = @video.reviews.new(set_params.merge!(user: current_user))
+    
+    if review.save
+      redirect_to video
+    else
+      @reviews = @video.reviews.reload
+      render 'videos/show'
+    end
   end
 
   private
