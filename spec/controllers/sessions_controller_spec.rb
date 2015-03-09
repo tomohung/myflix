@@ -18,8 +18,9 @@ describe SessionsController do
 
   describe 'POST create' do
     context 'with authenticated' do
+      let(:user) { Fabricate(:user) } 
+      
       before do 
-        user = Fabricate(:user)
         post :create, email: user.email, password: user.password
       end
 
