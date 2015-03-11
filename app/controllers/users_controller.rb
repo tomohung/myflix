@@ -14,8 +14,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def my_queue
-    
-
-  end
 end

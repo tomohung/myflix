@@ -1,4 +1,1 @@
-Fabricator(:queue_item) do 
-    
-
-end
+Fabricator(:queue_item) {}
