@@ -13,4 +13,9 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def my_queue
+    
+
+  end
 end
