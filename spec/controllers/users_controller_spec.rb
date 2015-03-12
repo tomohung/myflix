@@ -31,7 +31,6 @@ describe UsersController do
       it 'should redirect to home_path' do
         expect(response).to redirect_to home_path
       end
-      
     end
 
     context 'with invliad input' do
@@ -51,9 +50,6 @@ describe UsersController do
       it 'sets @user' do
         expect(assigns(:user)).to be_instance_of(User)
       end
-
     end
-
   end
-
 end

@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 describe VideosController do 
-  let(:video) { Fabricate(:video) } 
+  
+  
   describe 'GET show' do
-    
-    context 'with authentication' do
+
+    let(:video) { Fabricate(:video) } 
+
+    context 'with authentication' do      
       
-      let(:user) { Fabricate(:user)}
-      before do
-        session[:user_id] = user.id 
-      end
+      before { set_current_user }
 
       it 'sets @video' do
         get :show, id: video.id
@@ -17,12 +17,10 @@ describe VideosController do
       end
 
       it 'sets @reviews' do
-        
-        review1 = Fabricate(:review, video: video, user: user)
-        review2 = Fabricate(:review, video: video, user: user)
+        review1 = Fabricate(:review, video: video, user: current_user)
+        review2 = Fabricate(:review, video: video, user: current_user)
         get :show, id: video.id
         expect(assigns(:reviews)).to match_array([review1, review2])
-
       end
     end
 
@@ -32,12 +30,14 @@ describe VideosController do
         expect(response).to redirect_to sign_in_path
       end
     end
-
   end
 
   describe 'GET search' do
+    
+    let(:video) { Fabricate(:video) } 
+    
     it 'sets @results if authenticated users' do
-      session[:user_id] = Fabricate(:user).id
+      set_current_user
       get :search, search_term: video.title
       expect(assigns(:results)).to eq([video])
     end
