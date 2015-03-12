@@ -36,9 +36,10 @@ describe QueueItem do
   end
 
   describe '#rating=' do
+    let(:user) { Fabricate(:user) }
+    let(:video) { Fabricate(:video) }
+
     it 'changes rating of the review if review is present' do
-      user = Fabricate(:user)
-      video = Fabricate(:video)
       review = Fabricate(:review, user: user, video: video, rating: 5)
       queue_item = Fabricate(:queue_item, user: user, video: video)
       queue_item.rating = 3
@@ -46,8 +47,6 @@ describe QueueItem do
     end
 
     it 'clears the rating of the review if review is present' do
-      user = Fabricate(:user)
-      video = Fabricate(:video)
       review = Fabricate(:review, user: user, video: video, rating: 5)
       queue_item = Fabricate(:queue_item, user: user, video: video)
       queue_item.rating = nil
@@ -55,8 +54,6 @@ describe QueueItem do
     end
     
     it 'creates a review with the rating if review is not preset' do
-      user = Fabricate(:user)
-      video = Fabricate(:video)
       queue_item = Fabricate(:queue_item, user: user, video: video)
       queue_item.rating = 3
       expect(Review.count).to eq(1)
