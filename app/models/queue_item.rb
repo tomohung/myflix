@@ -17,4 +17,10 @@ class QueueItem < ActiveRecord::Base
     review.rating if review
   end
 
+  def self.append_video_to_user(user, video)
+      queue_item = QueueItem.new(user: user, video: video)
+      queue_item.position = user.queue_items.count + 1
+      queue_item.save
+  end
+
 end

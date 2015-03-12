@@ -14,9 +14,7 @@ class QueueItemsController < ApplicationController
 
     video = Video.find(params[:video_id])
     if video && !current_user.queue_include?(video)
-      queue_item = QueueItem.new(user: current_user, video: video)
-      queue_item.position = current_user.queue_items.count + 1
-      queue_item.save
+      QueueItem.append_video_to_user(current_user, video)
     end
     redirect_to my_queue_path
   end
@@ -30,20 +28,25 @@ class QueueItemsController < ApplicationController
 
   def update_queue
     begin
-      if params[:queue_items]
-        ActiveRecord::Base.transaction do
-          params[:queue_items].each do |queue_item_data|
-            queue_item = QueueItem.find(queue_item_data["id"])
-            queue_item.update!(position: queue_item_data["position"])
-          end
-        end
-      end
+      update_queue_items
     rescue ActiveRecord::RecordInvalid
       flash[:error] = 'Invalid position numbers.'      
     end  
 
     current_user.normalize_queue_items
     redirect_to my_queue_path
+  end
+
+private
+  def update_queue_items
+    if params[:queue_items]
+      ActiveRecord::Base.transaction do
+        params[:queue_items].each do |queue_item_data|
+          queue_item = QueueItem.find(queue_item_data["id"])
+          queue_item.update!(position: queue_item_data["position"])
+        end
+      end
+    end
   end
 
 end
