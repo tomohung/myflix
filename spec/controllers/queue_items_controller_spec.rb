@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe QueueItemsController do
+  
+  before { set_current_user }
+
   describe 'GET index' do
     it 'sets @queue_items with authentication' do
-      set_current_user
       queue_items = current_user.queue_items
       get :index
       expect(assigns(:queue_items)).to match_array(queue_items)
@@ -15,31 +17,28 @@ describe QueueItemsController do
   end
 
   describe 'POST create' do
-    before { set_current_user }
+    let(:video) { Fabricate(:video) }
 
     it_behaves_like 'queue_done' do
       let(:action) { post :create, video_id: Fabricate(:video).id }
-    end    
+    end
 
     it 'create a queue item' do
-      post :create, video_id: Fabricate(:video).id
+      post :create, video_id: video.id
       expect(QueueItem.count).to eq(1)
     end
 
     it 'creates the queue item associated with video' do
-      video = Fabricate(:video)
       post :create, video_id: video.id
       expect(QueueItem.first.video).to eq(video)
     end
 
     it 'creates the queue item associated with current_user' do
-      video = Fabricate(:video)
       post :create, video_id: video.id
       expect(QueueItem.first.user).to eq(current_user)
     end
 
     it 'puts the video as the last one in the queue' do
-      video = Fabricate(:video)
       queue_item = Fabricate(:queue_item, user: current_user, video: video, position: 1)
       monk = Fabricate(:video)
       post :create, video_id: monk.id
@@ -47,7 +46,6 @@ describe QueueItemsController do
     end
 
     it 'does not add the video is already in the queue' do
-      video = Fabricate(:video)
       queue_item = Fabricate(:queue_item, user: current_user, video: video, position: 1)
       post :create, video_id: video.id
       expect(QueueItem.count).to eq(1)
@@ -61,21 +59,19 @@ describe QueueItemsController do
   describe 'DELETE destroy' do
 
     context 'with authenticated' do
-      let(:user) { Fabricate(:user) }
+      
       let(:video) { Fabricate(:video) }
-      let(:queue_item) { Fabricate(:queue_item, user: user, video: video) }
-
-      before { set_current_user(user) }
+      let(:queue_item) { Fabricate(:queue_item, user: current_user, video: video) }
 
       it_behaves_like 'queue_done' do
         let(:action) do
-          queue_item = Fabricate(:queue_item, user: user, video: video)
+          queue_item = Fabricate(:queue_item, user: current_user, video: video)
           delete :destroy, id: queue_item.id
         end
       end
 
       it 'deletes the queue item' do
-        queue_item = Fabricate(:queue_item, user: user, video: video)
+        queue_item = Fabricate(:queue_item, user: current_user, video: video)
         delete :destroy, id: queue_item.id
         expect(QueueItem.count).to eq(0)      
       end
@@ -87,8 +83,8 @@ describe QueueItemsController do
       end
   
       it 'normalize the remaining queue items' do
-        queue_item = Fabricate(:queue_item, user: user, video: Fabricate(:video))
-        queue_item2 = Fabricate(:queue_item, user: user, video: Fabricate(:video))
+        queue_item = Fabricate(:queue_item, user: current_user, video: Fabricate(:video))
+        queue_item2 = Fabricate(:queue_item, user: current_user, video: Fabricate(:video))
         delete :destroy, id: queue_item.id
         expect(QueueItem.first.position).to eq(queue_item2.reload.position)
       end
@@ -101,8 +97,6 @@ describe QueueItemsController do
 
   describe 'POST update_queue' do
     context 'with valid inputs' do
-
-      before { set_current_user }
 
       it_behaves_like 'queue_done' do
         let(:action) do
@@ -129,9 +123,7 @@ describe QueueItemsController do
 
     context 'with invalid inputs' do
       
-      let(:user) { Fabricate(:user) }
-      let(:queue_item) { Fabricate(:queue_item, user: user, video: Fabricate(:video)) }
-      before { set_current_user(user) }
+      let(:queue_item) { Fabricate(:queue_item, user: current_user, video: Fabricate(:video)) }
 
       it_behaves_like 'queue_done' do
         let(:action) { post :update_queue, queue_items: [{id: queue_item.id, position: 2.5}] }
@@ -156,8 +148,6 @@ describe QueueItemsController do
     end
 
     context 'with queue items do not belong to current user' do
-      
-      before { set_current_user }
       
       it_behaves_like 'queue_done' do
         let(:action) do
