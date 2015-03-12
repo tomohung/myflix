@@ -55,8 +55,7 @@ describe QueueItem do
     
     it 'creates a review with the rating if review is not preset' do
       queue_item = Fabricate(:queue_item, user: user, video: video)
-      queue_item.rating = 3
-      expect(Review.count).to eq(1)
+      expect { queue_item.rating = 3 }.to change { Review.count }.by 1
     end
   end
 

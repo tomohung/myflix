@@ -190,11 +190,12 @@ describe QueueItemsController do
         post :update_queue, queue_items: [{id: queue_item.id, position: 2}]
         expect(response).to redirect_to my_queue_path
       end
+      
       it 'only keep queue items belong to current user' do
         user = Fabricate(:user)
         session[:user_id] = user.id
         queue_item = Fabricate(:queue_item, user: Fabricate(:user), video: Fabricate(:video))
-        post :update_queue, queue_items: [{id: queue_item.id, position: 2.5}]
+        post :update_queue, queue_items: [{id: queue_item.id, position: 1}]
         expect(user.queue_items.count).to eq(0)
       end
     end
