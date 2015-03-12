@@ -58,14 +58,8 @@ describe ReviewsController do
       end
     end
 
-    context 'without authentication' do
-      
-      let(:video) { Fabricate(:video) }            
-      it 'should redirect to root_path' do
-        clear_current_user
-        post :create, review: Fabricate.attributes_for(:review), video_id: video.id
-        expect(response).to redirect_to(sign_in_path)
-      end
+    it_behaves_like 'require_sign_in' do
+      let(:action) { post :create, review: Fabricate.attributes_for(:review), video_id: Fabricate(:video).id }
     end
   end
 end

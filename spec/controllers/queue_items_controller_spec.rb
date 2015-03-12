@@ -9,19 +9,17 @@ describe QueueItemsController do
       expect(assigns(:queue_items)).to match_array(queue_items)
     end
 
-    it 'redirect_to sign in page with unquthentication' do
-      get :index
-      expect(response).to redirect_to sign_in_path
+    it_behaves_like 'require_sign_in' do
+      let(:action) { get :index }
     end
   end
 
   describe 'POST create' do
     before { set_current_user }
 
-    it 'redirects to the my queue page' do
-      post :create, video_id: Fabricate(:video).id
-      expect(response).to redirect_to my_queue_path
-    end
+    it_behaves_like 'queue_done' do
+      let(:action) { post :create, video_id: Fabricate(:video).id }
+    end    
 
     it 'create a queue item' do
       post :create, video_id: Fabricate(:video).id
@@ -55,10 +53,8 @@ describe QueueItemsController do
       expect(QueueItem.count).to eq(1)
     end
 
-    it 'redirects to sign in page if unauthenticated' do
-      clear_current_user
-      post :create, video_id: Fabricate(:video).id
-      expect(response).to redirect_to sign_in_path
+    it_behaves_like 'require_sign_in' do
+      let(:action) { post :create, video_id: Fabricate(:video).id }
     end
   end
 
@@ -71,10 +67,11 @@ describe QueueItemsController do
 
       before { set_current_user(user) }
 
-      it 'redirects to my queue page' do
-        queue_item = Fabricate(:queue_item, user: user, video: video)
-        delete :destroy, id: queue_item.id
-        expect(response).to redirect_to my_queue_path
+      it_behaves_like 'queue_done' do
+        let(:action) do
+          queue_item = Fabricate(:queue_item, user: user, video: video)
+          delete :destroy, id: queue_item.id
+        end
       end
 
       it 'deletes the queue item' do
@@ -97,11 +94,8 @@ describe QueueItemsController do
       end
     end
 
-    context 'with unauthenticated' do
-      it 'should returns to sign in page' do
-        delete :destroy, id: 1
-        expect(response).to redirect_to sign_in_path      
-      end
+    it_behaves_like 'require_sign_in' do
+      let(:action) { delete :destroy, id: 1 }
     end
   end
 
@@ -110,10 +104,11 @@ describe QueueItemsController do
 
       before { set_current_user }
 
-      it 'redirects to the my queue page' do
-        queue_item = Fabricate(:queue_item, user: current_user, video: Fabricate(:video))
-        post :update_queue, queue_items: [{id: queue_item.id, position: queue_item.position}]
-        expect(response).to redirect_to my_queue_path
+      it_behaves_like 'queue_done' do
+        let(:action) do
+          queue_item = Fabricate(:queue_item, user: current_user, video: Fabricate(:video))
+          post :update_queue, queue_items: [{id: queue_item.id, position: queue_item.position}]
+        end        
       end
 
       it 'reorders the queue items' do
@@ -138,9 +133,8 @@ describe QueueItemsController do
       let(:queue_item) { Fabricate(:queue_item, user: user, video: Fabricate(:video)) }
       before { set_current_user(user) }
 
-      it 'redirects to my queue page' do
-        post :update_queue, queue_items: [{id: queue_item.id, position: 2.5}]
-        expect(response).to redirect_to my_queue_path
+      it_behaves_like 'queue_done' do
+        let(:action) { post :update_queue, queue_items: [{id: queue_item.id, position: 2.5}] }
       end
       
       it 'sets the flash error message' do
@@ -154,13 +148,10 @@ describe QueueItemsController do
       end
     end
 
-    context 'with unauthenticated' do
-      it 'redirect to sign in page' do
-        user = Fabricate(:user)
-        clear_current_user
-        queue_item = Fabricate(:queue_item, user: user, video: Fabricate(:video))
+    it_behaves_like 'require_sign_in' do
+      let(:action) do
+        queue_item = Fabricate(:queue_item, user: Fabricate(:user), video: Fabricate(:video))
         post :update_queue, queue_items: [{id: queue_item.id, position: 2.5}]        
-        expect(response).to redirect_to sign_in_path
       end
     end
 
@@ -168,10 +159,11 @@ describe QueueItemsController do
       
       before { set_current_user }
       
-      it 'redirects to my queue page' do
-        queue_item = Fabricate(:queue_item, user: Fabricate(:user), video: Fabricate(:video))
-        post :update_queue, queue_items: [{id: queue_item.id, position: 2}]
-        expect(response).to redirect_to my_queue_path
+      it_behaves_like 'queue_done' do
+        let(:action) do
+          queue_item = Fabricate(:queue_item, user: Fabricate(:user), video: Fabricate(:video))
+          post :update_queue, queue_items: [{id: queue_item.id, position: 2}]
+        end
       end
       
       it 'only keep queue items belong to current user' do
