@@ -1,0 +1,1 @@
+Fabricator(:queue_item) {}

@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :reviews
+  has_many :queue_items
+
+  def queue_include?(video)
+    queue_items.map(&:video).include?(video)
+  end
+
 end
