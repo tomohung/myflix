@@ -35,6 +35,30 @@ describe QueueItem do
 
   end
 
+  describe '#rating=' do
+    let(:user) { Fabricate(:user) }
+    let(:video) { Fabricate(:video) }
+
+    it 'changes rating of the review if review is present' do
+      review = Fabricate(:review, user: user, video: video, rating: 5)
+      queue_item = Fabricate(:queue_item, user: user, video: video)
+      queue_item.rating = 3
+      expect(review.reload.rating).to eq(3)
+    end
+
+    it 'clears the rating of the review if review is present' do
+      review = Fabricate(:review, user: user, video: video, rating: 5)
+      queue_item = Fabricate(:queue_item, user: user, video: video)
+      queue_item.rating = nil
+      expect(review.reload.rating).to be_nil
+    end
+    
+    it 'creates a review with the rating if review is not preset' do
+      queue_item = Fabricate(:queue_item, user: user, video: video)
+      expect { queue_item.rating = 3 }.to change { Review.count }.by 1
+    end
+  end
+
   describe '#category_name' do
     it 'returns category name of video' do
       user = Fabricate(:user)
@@ -54,6 +78,5 @@ describe QueueItem do
       expect(queue_item.category).to eq(category)      
     end
   end
-
 
 end

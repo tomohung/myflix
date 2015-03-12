@@ -16,10 +16,6 @@ admin = User.create(email: 'admin@admin.com', full_name: 'admin', password: 'aaa
   v = cat_comedy.videos.build(title: "South Park - #{index}", description: 'funny cartoon', small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
   v.save
 
-  5.times do
-    review = Review.new(user: admin, video: v, context: "cool video", rating: (1..5).to_a.sample )
-    review.save
-  end
 end
 
 10.times do |index|
