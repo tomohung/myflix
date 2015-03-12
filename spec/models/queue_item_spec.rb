@@ -3,8 +3,8 @@ require 'spec_helper'
 describe QueueItem do
   it { should belong_to :user }
   it { should belong_to :video }
-  it { should validate_presence_of :user_id }
-  it { should validate_presence_of :video_id }
+  it { should validate_presence_of :user }
+  it { should validate_presence_of :video }
 
   describe '#video_title' do
     it 'returns title of associated video' do
