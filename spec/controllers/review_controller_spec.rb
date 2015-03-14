@@ -5,11 +5,10 @@ describe ReviewsController do
     context 'with authentication' do
       context 'with valid input' do
 
-        let(:user) { Fabricate(:user) }
         let(:video) { Fabricate(:video) }  
         
         before do
-          session[:user_id] = user.id
+          set_current_user
           post :create, review: Fabricate.attributes_for(:review), video_id: video.id
         end
         
@@ -18,7 +17,7 @@ describe ReviewsController do
         end
 
         it 'should set association with current_user' do
-          expect(Review.first.user).to eq(user)
+          expect(Review.first.user).to eq(current_user)
         end
 
         it 'should create review' do
@@ -32,12 +31,9 @@ describe ReviewsController do
 
       context 'with invalid input' do
 
-        let(:user) { Fabricate(:user) }
         let(:video) { Fabricate(:video) }  
         
-        before do
-          session[:user_id] = user.id
-        end
+        before { set_current_user }
 
         it 'should not create review if rating is blank' do
           post :create, review: {context: Faker::Lorem::paragraph }, video_id: video.id
@@ -62,15 +58,8 @@ describe ReviewsController do
       end
     end
 
-    context 'without authentication' do
-      
-      let(:video) { Fabricate(:video) }            
-      it 'should redirect to root_path' do
-        session[:user_id] = nil
-
-        post :create, review: Fabricate.attributes_for(:review), video_id: video.id
-        expect(response).to redirect_to(sign_in_path)
-      end
+    it_behaves_like 'require_sign_in' do
+      let(:action) { post :create, review: Fabricate.attributes_for(:review), video_id: Fabricate(:video).id }
     end
   end
 end

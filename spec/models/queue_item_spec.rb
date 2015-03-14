@@ -18,43 +18,39 @@ describe QueueItem do
   end
 
   describe '#rating' do
+    let(:user) { Fabricate(:user) }
+    let(:video) { Fabricate(:video) }
+
     it 'returns rating from the review if review is present' do
-      user = Fabricate(:user)
-      video = Fabricate(:video)
       review = Fabricate(:review, user: user, video: video, rating: 4)
       queue_item = QueueItem.create(user: user, video: video)
       expect(queue_item.rating).to eq(4)
     end
 
     it 'returns nil if review is not present' do
-      user = Fabricate(:user)
-      video = Fabricate(:video)
       queue_item = QueueItem.create(user: user, video: video)
       expect(queue_item.rating).to be_nil
     end
-
   end
 
   describe '#rating=' do
     let(:user) { Fabricate(:user) }
     let(:video) { Fabricate(:video) }
+    let(:queue_item) { Fabricate(:queue_item, user: user, video: video) }
 
     it 'changes rating of the review if review is present' do
       review = Fabricate(:review, user: user, video: video, rating: 5)
-      queue_item = Fabricate(:queue_item, user: user, video: video)
       queue_item.rating = 3
       expect(review.reload.rating).to eq(3)
     end
 
     it 'clears the rating of the review if review is present' do
       review = Fabricate(:review, user: user, video: video, rating: 5)
-      queue_item = Fabricate(:queue_item, user: user, video: video)
       queue_item.rating = nil
       expect(review.reload.rating).to be_nil
     end
     
     it 'creates a review with the rating if review is not preset' do
-      queue_item = Fabricate(:queue_item, user: user, video: video)
       expect { queue_item.rating = 3 }.to change { Review.count }.by 1
     end
   end
