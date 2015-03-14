@@ -3,12 +3,14 @@ require 'spec_helper'
 feature 'user interacts with the queue' do 
 
   scenario 'user adds and reorder videos in the queue' do
-    category = Fabricate(:category)
-    monk = Fabricate(:video, title: 'monk', category: category)
-    futurama = Fabricate(:video, title: 'futurama', category: category)
-    south_park = Fabricate(:video, title: 'south park', category: category)
+    category    = Fabricate(:category)
+    monk        = Fabricate(:video, title: 'monk', category: category)
+    futurama    = Fabricate(:video, title: 'futurama', category: category)
+    south_park  = Fabricate(:video, title: 'south park', category: category)
 
     sign_in
+    expect(page).to have_content 'You have signed in.'
+
     add_video_to_queue(monk)
     expect(page).to have_content(monk.title)
 
