@@ -1,4 +1,4 @@
 Fabricator(:category) do
-  title { Faker::Lorem.name }
+  title { Faker::Lorem.word }
   description { Faker::Lorem.paragraph }
 end

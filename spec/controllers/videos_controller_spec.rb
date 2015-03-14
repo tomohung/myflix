@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe VideosController do 
   
-  
   describe 'GET show' do
 
     let(:video) { Fabricate(:video) } 
