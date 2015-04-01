@@ -13,20 +13,19 @@ cat_reality = Category.create(title: 'Reality TV', description: 'reality tv')
 admin = User.create(email: 'admin@admin.com', full_name: 'admin', password: 'aaa')
 bob = User.create(email: 'bob@bob.com', full_name: 'bob', password: 'bbb')
 
+Fabricate(:user)
+
 Relationship.create(leader: bob, follower: admin)
 
 10.times do |index|
-  v = cat_comedy.videos.build(title: "South Park - #{index}", description: 'funny cartoon', small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
-  v.save
-  Review.create(user: bob, video: v, context: 'a;skldjflakjdf')
+  v = cat_comedy.videos.create(title: "South Park - #{index}", description: 'funny cartoon', small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
+  Fabricate(:review, user: bob, video: v)
 end
 
 10.times do |index|
-  v = cat_drama.videos.build(title: "Monk - #{index}", description: 'Monk is... monk.', small_cover_url: '/tmp/monk.jpg', large_cover_url: '/tmp/monk_large.jpg')
-  v.save
+  v = cat_drama.videos.create(title: "Monk - #{index}", description: 'Monk is... monk.', small_cover_url: '/tmp/monk.jpg', large_cover_url: '/tmp/monk_large.jpg')
 end
 
 10.times do |index|
-  v = cat_reality.videos.build(title: "Reality - #{index}", description: 'Monk is still a monk.', small_cover_url: '/tmp/monk.jpg', large_cover_url: '/tmp/monk_large.jpg')
-  v.save
+  v = cat_reality.videos.create(title: "Reality - #{index}", description: 'Monk is still a monk.', small_cover_url: '/tmp/monk.jpg', large_cover_url: '/tmp/monk_large.jpg')
 end
