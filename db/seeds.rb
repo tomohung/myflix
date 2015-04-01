@@ -18,7 +18,7 @@ Relationship.create(leader: bob, follower: admin)
 10.times do |index|
   v = cat_comedy.videos.build(title: "South Park - #{index}", description: 'funny cartoon', small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
   v.save
-
+  Review.create(user: bob, video: v, context: 'a;skldjflakjdf')
 end
 
 10.times do |index|
