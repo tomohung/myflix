@@ -13,12 +13,14 @@ feature 'User following' do
     click_link "Follow"
 
     expect(page).to have_content(amy.full_name)
-    unfollow(amy)
+    within 'table' do
+     unfollow
+    end
     expect(page).not_to have_content(amy.full_name)
   end  
 end
 
-def unfollow(user)
+def unfollow
   find("a[data-method='delete']").click
 end
 
