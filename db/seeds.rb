@@ -11,6 +11,9 @@ cat_drama = Category.create(title: 'TV Dramas', description: 'tv dramas')
 cat_reality = Category.create(title: 'Reality TV', description: 'reality tv')
 
 admin = User.create(email: 'admin@admin.com', full_name: 'admin', password: 'aaa')
+bob = User.create(email: 'bob@bob.com', full_name: 'bob', password: 'bbb')
+
+Relationship.create(leader: bob, follower: admin)
 
 10.times do |index|
   v = cat_comedy.videos.build(title: "South Park - #{index}", description: 'funny cartoon', small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
