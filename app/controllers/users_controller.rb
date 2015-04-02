@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create    
     @user = User.new(params.require(:user).permit!)
     if @user.save
+      AppMailer.send_welcome_email(@user).deliver
       session[:user_id] = @user.id
       redirect_to home_path
     else
