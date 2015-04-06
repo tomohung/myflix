@@ -22,4 +22,11 @@ describe User do
     end
   end
 
+  describe '#generate_token' do
+    it 'generates a random token when user is created' do
+      user = Fabricate(:user)
+      expect(User.first.token).to be_present
+    end
+  end
+
 end
