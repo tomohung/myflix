@@ -2,4 +2,4 @@
   %body
     %p Hi, #{@invitation.recipient_name}
     %p Your friend, #{@inviter.full_name}, want to invite you to join MyFlix.
-    %p= link_to "Accept Inviation", register_with_token_path(@inviter.token)
+    %p= link_to "Accept Inviation", register_with_token_url(@inviter.token)

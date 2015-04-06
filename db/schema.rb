@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150406071237) do
     t.string   "recipient_name"
     t.string   "recipient_email"
     t.text     "message"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
