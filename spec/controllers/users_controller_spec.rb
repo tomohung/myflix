@@ -118,11 +118,10 @@ describe UsersController do
       it 'expires the invitation upon acceptance' do
         user = Fabricate(:user)
         invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token        
+        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
         expect(Invitation.first.token).to be nil
       end
     end
-
   end
 
   describe 'GET show' do

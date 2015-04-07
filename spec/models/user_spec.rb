@@ -29,4 +29,21 @@ describe User do
     end
   end
 
+  describe '#follow' do
+    it 'follows another user' do
+      user1 = Fabricate(:user)
+      user2 = Fabricate(:user)
+      user1.follow(user2)
+      expect(user1.reload.follows?(user2.reload)).to be true
+    end
+
+    it 'does not follow one self' do
+      user1 = Fabricate(:user)
+      user2 = Fabricate(:user)
+      Relationship.create(follower: user1, leader: user2)
+      user1.follow(user2)
+      expect(Relationship.count).to eq(1)
+    end
+  end
+
 end
