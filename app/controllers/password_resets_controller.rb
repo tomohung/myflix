@@ -11,9 +11,7 @@ class PasswordResetsController < ApplicationController
   def create
     user = User.find_by(token: params[:token])
     if user
-      user.update(password: params[:password])
-      user.generate_token
-      user.save
+      user.update(password: params[:password], token: SecureRandom.urlsafe_base64)
       flash[:notice] = 'User password has changed.'
       redirect_to sign_in_path
     else
