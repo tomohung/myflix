@@ -13,6 +13,8 @@ gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap_form'
 
+gem 'sidekiq'
+
 group :development do
   gem 'thin'
   gem "better_errors"
