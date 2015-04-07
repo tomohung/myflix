@@ -11,10 +11,10 @@ class InvitationsController < ApplicationController
     
     if @invitation.save
       AppMailer.send_invitation_email(current_user, @invitation).deliver
-      flash[:notice] = 'Invitaiton has been sent.'
+      flash[:success] = 'Invitaiton has been sent.'
       redirect_to new_invitation_path
     else
-      flash[:error] = 'Invitation is invalid.'
+      flash[:danger] = 'Invitation is invalid.'
       render :new
     end
   end

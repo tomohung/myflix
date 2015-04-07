@@ -9,7 +9,7 @@ describe ForgotPasswordsController do
       end
       it 'show an error messages' do
         post :create
-        expect(flash[:error]).to be_present
+        expect(flash[:danger]).to be_present
       end
     end
 
@@ -35,7 +35,7 @@ describe ForgotPasswordsController do
 
       it 'shows an error message' do
         post :create, email: 'a@example.com'
-        expect(flash[:error]).to be_present
+        expect(flash[:danger]).to be_present
       end
     end
   end

@@ -6,8 +6,7 @@ describe InvitationsController do
     it 'sets @invitation to a new invitation' do
       set_current_user
       get :new
-      expect(assigns(:invitation)).to be_instance_of Invitation
-      expect(assigns(:invitation)).to be_new_record
+      expect(assigns(:invitation)).to be_a_new Invitation
     end
 
     it_behaves_like "require_sign_in" do
@@ -43,7 +42,7 @@ describe InvitationsController do
 
       it 'sets the flash success message' do
         post :create, invitation: { recipient_name: 'Joe', recipient_email: 'joe@example.com', message: 'come to join us.'}
-        expect(flash[:notice]).to be_present
+        expect(flash[:success]).to be_present
       end
     end
 
@@ -66,7 +65,7 @@ describe InvitationsController do
 
       it 'sets the flash error messages' do
         post :create, invitation: { recipient_email: 'joe@example.com', message: 'come to join us.'}
-        expect(flash[:error]).to be_present
+        expect(flash[:danger]).to be_present
       end
 
       it 'sets @invitation' do
