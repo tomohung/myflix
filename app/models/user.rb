@@ -1,4 +1,7 @@
+require 'tokenable'
+
 class User < ActiveRecord::Base
+  include Tokenable
 
   has_secure_password validations: false
   validates_presence_of :email, :password, :full_name
@@ -9,16 +12,10 @@ class User < ActiveRecord::Base
   has_many :following_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :leading_relationships, class_name: 'Relationship', foreign_key: :leader_id
 
-  before_create :generate_token
-
   def to_param
     token
   end
 
-  def generate_token
-    self.token = SecureRandom.urlsafe_base64
-  end
-  
   def queue_include?(video)
     queue_items.map(&:video).include?(video)
   end
@@ -35,6 +32,10 @@ class User < ActiveRecord::Base
 
   def can_follow?(another_user)
     !(self.follows?(another_user) || self == another_user || another_user.nil?)
+  end
+
+  def follow(another_user)
+    Relationship.create(leader: another_user, follower: self) if can_follow?(another_user)
   end
 
 end

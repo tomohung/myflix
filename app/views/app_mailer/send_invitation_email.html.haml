@@ -1,0 +1,5 @@
+%html(lang='en-US')
+  %body
+    %p Hi, #{@invitation.recipient_name}
+    %p Your friend, #{@inviter.full_name}, want to invite you to join MyFlix.
+    %p= link_to "Accept Invitation", register_with_token_url(@invitation.token), target: "_top"
