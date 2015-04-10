@@ -16,6 +16,11 @@ gem 'bootstrap_form'
 gem 'sidekiq'
 gem 'sentry-raven'
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'fog'
+
 group :development do
   gem 'thin'
   gem "better_errors"
