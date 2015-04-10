@@ -81,8 +81,6 @@ GEM
     fabrication (2.12.2)
     faker (1.4.3)
       i18n (~> 0.5)
-    faraday (0.9.1)
-      multipart-post (>= 1.2, < 3)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.29.0)
@@ -210,7 +208,6 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
-    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -275,8 +272,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    sentry-raven (0.12.3)
-      faraday (>= 0.7.6)
     sexp_processor (4.5.0)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
@@ -346,7 +341,6 @@ DEPENDENCIES
   rails_12factor
   rspec-rails (= 2.99)
   sass-rails
-  sentry-raven
   shoulda-matchers
   sidekiq
   thin
