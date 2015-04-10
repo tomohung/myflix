@@ -6,6 +6,14 @@ shared_examples 'require_sign_in' do
   end
 end
 
+shared_examples 'require admin' do
+  it 'redirects the regular user to home path' do
+    set_current_user
+    action
+    expect(response).to redirect_to home_path
+  end
+end
+
 shared_examples 'queue_done' do
   it 'redirects to the my queue page' do
     action
