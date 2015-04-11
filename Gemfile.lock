@@ -328,7 +328,6 @@ DEPENDENCIES
   fabrication
   faker
   fog
-  fog-aws
   haml-rails
   jquery-rails
   launchy
