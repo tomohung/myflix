@@ -14,7 +14,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap_form'
 
 gem 'sidekiq'
-gem 'sentry-raven'
+#gem 'sentry-raven'
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 group :development do
   gem 'thin'
