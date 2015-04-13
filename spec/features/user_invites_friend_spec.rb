@@ -1,6 +1,11 @@
 require 'spec_helper'
-
+require 'stripe_mock'
 feature 'User invites friend' do
+
+  let(:stripe_helper) { StripeMock.create_test_helper }
+  after { StripeMock.stop }
+
+  before { StripeMock.start }
 
   scenario 'User successfully invites friend and invitation is accepted' do
     user = Fabricate(:user)
