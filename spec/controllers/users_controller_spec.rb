@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'stripe_mock'
 
 describe UsersController do
   
@@ -42,7 +43,11 @@ describe UsersController do
 
   describe 'POST create' do
     context 'with valid input' do
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      after { StripeMock.stop }
+
       before do
+        StripeMock.start
         post :create, user: Fabricate.attributes_for(:user)
       end
 
@@ -79,7 +84,13 @@ describe UsersController do
     end
 
     context 'sending email' do
-      before { ActionMailer::Base.deliveries.clear }
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      after { StripeMock.stop }
+
+      before do
+        StripeMock.start
+        ActionMailer::Base.deliveries.clear
+      end
 
       it 'sends out email to the user with valid inputs' do
         user_attributes = Fabricate.attributes_for(:user)
@@ -99,6 +110,11 @@ describe UsersController do
     end
 
     context 'create by invitation' do
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      after { StripeMock.stop }
+
+      before { StripeMock.start }
+
       it 'makes the user follow the inviter' do
         user = Fabricate(:user)
         invitation = Fabricate(:invitation, inviter: user)
