@@ -8,5 +8,7 @@
           = f.email_field :email, label: "Email Address"
           = f.password_field :password
           = f.text_field :full_name, label: 'Full Name'
-          = f.submit "Sign Up", class: 'btn btn-default'
           = hidden_field_tag :token, @invitation_token
+        %fieldset
+          .container
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"data-key=#{ENV['STRIPE_PUBLISHABLE_KEY']} data-name="MyFlix Sign Up Charge" data-amount="3000"> </script>
