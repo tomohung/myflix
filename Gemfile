@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'pg'
+gem 'puma'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap_form'
