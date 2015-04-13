@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'stripe_mock'
 
 describe UsersController do
   
@@ -42,8 +43,12 @@ describe UsersController do
 
   describe 'POST create' do
     context 'with valid input' do
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      after { StripeMock.stop }
+
       before do
-        post :create, user: Fabricate.attributes_for(:user)
+        StripeMock.start
+        post :create, user: Fabricate.attributes_for(:user), stripToken: stripe_helper.generate_card_token
       end
 
       it 'should create user' do
@@ -79,30 +84,41 @@ describe UsersController do
     end
 
     context 'sending email' do
-      before { ActionMailer::Base.deliveries.clear }
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      after { StripeMock.stop }
+
+      before do
+        StripeMock.start
+        ActionMailer::Base.deliveries.clear
+      end
 
       it 'sends out email to the user with valid inputs' do
         user_attributes = Fabricate.attributes_for(:user)
-        post :create, user: user_attributes
+        post :create, user: user_attributes, stripToken: stripe_helper.generate_card_token
         expect(ActionMailer::Base.deliveries.last.to).to eq([user_attributes["email"]])
       end
 
       it 'sends out email containing user name with valid inputs' do
         user_attributes = Fabricate.attributes_for(:user)
-        post :create, user: user_attributes
+        post :create, user: user_attributes, stripToken: stripe_helper.generate_card_token
         expect(ActionMailer::Base.deliveries.last.body).to include(user_attributes["full_name"])
       end
       it 'does not send out email with invalid inputs' do
-        post :create, user: { email: 'a@email.com'}
+        post :create, user: { email: 'a@email.com'}, stripToken: stripe_helper.generate_card_token
         expect(ActionMailer::Base.deliveries).to be_empty
       end
     end
 
     context 'create by invitation' do
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      after { StripeMock.stop }
+
+      before { StripeMock.start }
+
       it 'makes the user follow the inviter' do
         user = Fabricate(:user)
         invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
+        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token, stripToken: stripe_helper.generate_card_token
         joe = User.find_by(email: 'joe@example.com')
         expect(joe.follows?(user)).to be true
       end
@@ -110,7 +126,7 @@ describe UsersController do
       it 'makes the inviter follow the user' do
         user = Fabricate(:user)
         invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
+        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token, stripToken: stripe_helper.generate_card_token
         joe = User.find_by(email: 'joe@example.com')
         expect(user.follows?(joe)).to be true
       end
@@ -118,7 +134,7 @@ describe UsersController do
       it 'expires the invitation upon acceptance' do
         user = Fabricate(:user)
         invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
+        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token, stripToken: stripe_helper.generate_card_token
         expect(Invitation.first.token).to be nil
       end
     end
