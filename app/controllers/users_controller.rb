@@ -58,23 +58,17 @@ class UsersController < ApplicationController
 
   def charge_user_with_stripe
     
-    # Set your secret key: remember to change this to your live secret key in production
-    # See your keys here https://dashboard.stripe.com/account/apikeys
-    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-
-    # Get the credit card details submitted by the form
+    StripeWrapper.set_api_key
     token = params[:stripeToken]
-    # Create the charge on Stripe's servers - this will charge the user's card
+
     begin
-      charge = Stripe::Charge.create(
+      charge = StripeWrapper::Charge.create(
         :amount => 3000, # amount in cents, again
-        :currency => "usd",
         :source => token,
         :description => "Signs up for #{@user.full_name}"
       )
-    rescue Stripe::CardError => e
-      # The card has been declined
-      flash[:danger] = e.message
+    rescue
+      flash[:danger] =  StripeWrapper::Charge.error_message
     end
   end
 

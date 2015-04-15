@@ -24,6 +24,7 @@ gem 'figaro'
 gem 'stripe'
 gem 'stripe-ruby-mock'
 
+
 group :development do
   gem 'thin'
   gem "better_errors"
