@@ -17,9 +17,11 @@ gem 'bootstrap_form'
 gem 'sidekiq'
 #gem 'sentry-raven'
 
+gem 'fog'
+gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog'
+
 gem 'figaro'
 gem 'stripe'
 gem 'stripe-ruby-mock'
@@ -46,6 +48,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'capybara-email'
+  gem 'selenium-webdriver'
+  gem 'vcr'
 end
 
 group :production do

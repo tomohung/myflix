@@ -8,14 +8,20 @@ class UsersController < ApplicationController
 
   def create    
     @user = User.new(user_params)
-    if @user.save
-      set_following_relationship
-      charge_user_with_stripe
-      AppMailer.delay.send_welcome_email(@user)
-      session[:user_id] = @user.id
-      redirect_to home_path
+    if @user.valid?    
+      charge = charge_user_with_stripe
+      if charge.success?
+        @user.save
+        set_following_relationship
+        AppMailer.delay.send_welcome_email(@user)
+        session[:user_id] = @user.id
+        redirect_to home_path
+      else
+        flash[:danger] =  charge.error_message
+        render :new
+      end
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -57,19 +63,12 @@ class UsersController < ApplicationController
   end
 
   def charge_user_with_stripe
-    
     StripeWrapper.set_api_key
     token = params[:stripeToken]
-
-    begin
-      charge = StripeWrapper::Charge.create(
+    charge = StripeWrapper::Charge.create(
         :amount => 3000, # amount in cents, again
         :source => token,
         :description => "Signs up for #{@user.full_name}"
-      )
-    rescue
-      flash[:danger] =  StripeWrapper::Charge.error_message
-    end
+    )
   end
-
 end

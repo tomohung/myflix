@@ -13,11 +13,12 @@ describe StripeWrapper do
         },
       ).id
 
-      charge = StripeWrapper::Charge.create(amount: 100, token: token)
+      charge = StripeWrapper::Charge.create(amount: 100, source: token)
       expect(charge.response.amount).to eq(100)
       expect(charge.response.currency).to eq('usd')
       expect(charge.success?).to be true
     end
+
   end
 
 end

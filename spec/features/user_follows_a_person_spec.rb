@@ -14,7 +14,7 @@ feature 'User following' do
 
     expect(page).to have_content(amy.full_name)
     within 'table' do
-     unfollow
+      unfollow
     end
     expect(page).not_to have_content(amy.full_name)
   end  
