@@ -15,7 +15,7 @@ feature 'user register a new account', { js: true, vcr: true } do
     select '2019', from: 'date_year'
     click_button 'Sign Up'
 
-    expect(page).to have_content 'Sign in'
+    expect(page).to have_content 'Fred'
   end
 
   scenario 'with invalid card info' do
