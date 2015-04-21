@@ -1,0 +1,2318 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://127.0.0.1:52662/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.5/2014-11-13)
+      Date:
+      - Tue, 21 Apr 2015 06:39:50 GMT
+      Content-Length:
+      - '14'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '70303532054860'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:50 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session
+    body:
+      encoding: UTF-8
+      string: '{"desiredCapabilities":{"browserName":"firefox","version":"","platform":"ANY","javascriptEnabled":true,"cssSelectorsEnabled":true,"takesScreenshot":true,"nativeEvents":false,"rotatable":false}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '193'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '422'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"newSession","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":{"cssSelectorsEnabled":true,"browserName":"firefox","handlesAlerts":true,"javascriptEnabled":true,"nativeEvents":false,"platform":"Darwin","rotatable":false,"takesScreenshot":true,"version":"37.0.1","webStorageEnabled":true,"applicationCacheEnabled":true,"databaseEnabled":true,"locationContextEnabled":true,"acceptSslCerts":true}}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:53 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://127.0.0.1:52662/sign_in"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '40'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '87'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"get","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":""}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Email Address''
+        or ./@name = ''Email Address'') or ./@placeholder = ''Email Address'') or
+        ./@id = //label[normalize-space(string(.)) = ''Email Address'']/@for)] | .//label[normalize-space(string(.))
+        = ''Email Address'']//.//*[self::input | self::textarea][not(./@type = ''submit''
+        or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox'' or
+        ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '587'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '148'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[{"ELEMENT":"{81cb4d97-87d8-504b-a5d9-0a08f93ad189}"}]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B81cb4d97-87d8-504b-a5d9-0a08f93ad189%7D/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '104'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"isElementDisplayed","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":true}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B81cb4d97-87d8-504b-a5d9-0a08f93ad189%7D/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '102'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"isElementEnabled","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":true}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B81cb4d97-87d8-504b-a5d9-0a08f93ad189%7D/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '106'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"getElementTagName","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B81cb4d97-87d8-504b-a5d9-0a08f93ad189%7D/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '108'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"getElementAttribute","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":"email"}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B81cb4d97-87d8-504b-a5d9-0a08f93ad189%7D/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '105'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"getElementAttribute","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":null}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/execute
+    body:
+      encoding: UTF-8
+      string: '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"{81cb4d97-87d8-504b-a5d9-0a08f93ad189}"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '98'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '99'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"executeScript","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":null}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B81cb4d97-87d8-504b-a5d9-0a08f93ad189%7D/value
+    body:
+      encoding: UTF-8
+      string: '{"value":["emerald@wiza.net"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '30'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '101'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"sendKeysToElement","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":""}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = ''Password'' or
+        ./@name = ''Password'') or ./@placeholder = ''Password'') or ./@id = //label[normalize-space(string(.))
+        = ''Password'']/@for)] | .//label[normalize-space(string(.)) = ''Password'']//.//*[self::input
+        | self::textarea][not(./@type = ''submit'' or ./@type = ''image'' or ./@type
+        = ''radio'' or ./@type = ''checkbox'' or ./@type = ''hidden'' or ./@type =
+        ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '562'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '148'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[{"ELEMENT":"{593ecf2d-0266-2243-98e0-5f1ecb729c38}"}]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B593ecf2d-0266-2243-98e0-5f1ecb729c38%7D/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '104'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"isElementDisplayed","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":true}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B593ecf2d-0266-2243-98e0-5f1ecb729c38%7D/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '102'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"isElementEnabled","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":true}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:55 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B593ecf2d-0266-2243-98e0-5f1ecb729c38%7D/name
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '106'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"getElementTagName","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":"input"}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B593ecf2d-0266-2243-98e0-5f1ecb729c38%7D/attribute/type
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '111'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"getElementAttribute","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":"password"}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B593ecf2d-0266-2243-98e0-5f1ecb729c38%7D/attribute/readonly
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '105'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"getElementAttribute","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":null}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/execute
+    body:
+      encoding: UTF-8
+      string: '{"script":"arguments[0].value = ''''","args":[{"ELEMENT":"{593ecf2d-0266-2243-98e0-5f1ecb729c38}"}]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '98'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '99'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"executeScript","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":null}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B593ecf2d-0266-2243-98e0-5f1ecb729c38%7D/value
+    body:
+      encoding: UTF-8
+      string: '{"value":["wvmttjz8u"]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '23'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '101'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"sendKeysToElement","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":""}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//input[./@type = ''submit'' or ./@type
+        = ''reset'' or ./@type = ''image'' or ./@type = ''button''][((./@id = ''Sign
+        in'' or ./@value = ''Sign in'') or ./@title = ''Sign in'')] | .//input[./@type
+        = ''image''][./@alt = ''Sign in''] | .//button[(((./@id = ''Sign in'' or ./@value
+        = ''Sign in'') or normalize-space(string(.)) = ''Sign in'') or ./@title =
+        ''Sign in'')] | .//input[./@type = ''image''][./@alt = ''Sign in'']"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '418'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '148'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[{"ELEMENT":"{90f65f78-39a3-624d-ac0f-d56ad729d7d3}"}]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B90f65f78-39a3-624d-ac0f-d56ad729d7d3%7D/displayed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '104'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"isElementDisplayed","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":true}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B90f65f78-39a3-624d-ac0f-d56ad729d7d3%7D/enabled
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Cache-Control:
+      - no-cache
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '102'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"isElementEnabled","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":true}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:56 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/element/%7B90f65f78-39a3-624d-ac0f-d56ad729d7d3%7D/click
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Length:
+      - '2'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '98'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:57 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"clickElement","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":"ok"}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:57 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://127.0.0.1:52662/invitations/new"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '48'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '87'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"get","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":""}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:58 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:58 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:39:59 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:39:59 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]/@for)] | .//label[normalize-space(string(.))
+        = concat(''Friend'',\"''\",''s Name'')]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '667'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:7055/hub/session/269febd0-3bcf-de4c-91c4-e0d8434cea46/elements
+    body:
+      encoding: UTF-8
+      string: '{"using":"xpath","value":".//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')][(((./@id = concat(''Friend'',\"''\",''s
+        Name'') or ./@name = concat(''Friend'',\"''\",''s Name'')) or ./@placeholder
+        = concat(''Friend'',\"''\",''s Name'')) or ./@id = //label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]/@for)] | .//label[contains(normalize-space(string(.)),
+        concat(''Friend'',\"''\",''s Name''))]//.//*[self::input | self::textarea][not(./@type
+        = ''submit'' or ./@type = ''image'' or ./@type = ''radio'' or ./@type = ''checkbox''
+        or ./@type = ''hidden'' or ./@type = ''file'')]"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '685'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Connection:
+      - close
+      Content-Length:
+      - '96'
+      Server:
+      - httpd.js
+      Date:
+      - Tue, 21 Apr 2015 06:40:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"name":"findElements","sessionId":"269febd0-3bcf-de4c-91c4-e0d8434cea46","status":0,"value":[]}'
+    http_version: 
+  recorded_at: Tue, 21 Apr 2015 06:40:00 GMT
+recorded_with: VCR 2.9.3

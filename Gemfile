@@ -24,8 +24,6 @@ gem 'mini_magick'
 
 gem 'figaro'
 gem 'stripe'
-gem 'stripe-ruby-mock'
-
 
 group :development do
   gem 'thin'
@@ -50,6 +48,8 @@ group :test do
   gem 'capybara-email'
   gem 'selenium-webdriver'
   gem 'vcr'
+  gem 'webmock'
+  gem 'capybara-webkit'
 end
 
 group :production do

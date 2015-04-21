@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'stripe_mock'
 
 describe UsersController do
   
@@ -43,11 +42,9 @@ describe UsersController do
 
   describe 'POST create' do
     context 'with valid input' do
-      let(:stripe_helper) { StripeMock.create_test_helper }
-      after { StripeMock.stop }
-
       before do
-        StripeMock.start
+        charge = double(:charge, success?: true)
+        StripeWrapper::Charge.stub(:create).and_return(charge)
         post :create, user: Fabricate.attributes_for(:user)
       end
 
@@ -67,6 +64,8 @@ describe UsersController do
     context 'with invliad input' do
       
       before do
+        charge = double(:charge, success?: true)
+        StripeWrapper::Charge.stub(:create).and_return(charge)
         post :create, user: { password: 'slkjdf'}
       end
       
@@ -84,11 +83,10 @@ describe UsersController do
     end
 
     context 'sending email' do
-      let(:stripe_helper) { StripeMock.create_test_helper }
-      after { StripeMock.stop }
 
       before do
-        StripeMock.start
+        charge = double(:charge, success?: true)
+        StripeWrapper::Charge.stub(:create).and_return(charge)
         ActionMailer::Base.deliveries.clear
       end
 
@@ -110,31 +108,26 @@ describe UsersController do
     end
 
     context 'create by invitation' do
-      let(:stripe_helper) { StripeMock.create_test_helper }
-      after { StripeMock.stop }
 
-      before { StripeMock.start }
-
-      it 'makes the user follow the inviter' do
-        user = Fabricate(:user)
+      let(:user) { Fabricate(:user) }
+      before do
+        charge = double(:charge, success?: true)
+        StripeWrapper::Charge.stub(:create).and_return(charge)
         invitation = Fabricate(:invitation, inviter: user)
         post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
+      end
+
+      it 'makes the user follow the inviter' do
         joe = User.find_by(email: 'joe@example.com')
         expect(joe.follows?(user)).to be true
       end
 
       it 'makes the inviter follow the user' do
-        user = Fabricate(:user)
-        invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
         joe = User.find_by(email: 'joe@example.com')
         expect(user.follows?(joe)).to be true
       end
 
       it 'expires the invitation upon acceptance' do
-        user = Fabricate(:user)
-        invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
         expect(Invitation.first.token).to be nil
       end
     end
