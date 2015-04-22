@@ -31,7 +31,7 @@ feature 'User invites friend' do
     
     visit home_path
     sign_out
-
+    
     sign_in(user)
     click_link 'People'
     expect(page).to have_content 'Joe'
