@@ -8,14 +8,20 @@ class UsersController < ApplicationController
 
   def create    
     @user = User.new(user_params)
-    if @user.save
-      set_following_relationship
-      charge_user_with_stripe
-      AppMailer.delay.send_welcome_email(@user)
-      session[:user_id] = @user.id
-      redirect_to home_path
+    if @user.valid?    
+      charge = charge_user_with_stripe
+      if charge.success?
+        @user.save
+        set_invitation_following_relationship
+        AppMailer.delay.send_welcome_email(@user)
+        session[:user_id] = @user.id
+        redirect_to home_path
+      else
+        flash.now[:danger] =  charge.error_message
+        render :new
+      end
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -42,7 +48,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:full_name, :password, :email)
   end
 
-  def set_following_relationship
+  def set_invitation_following_relationship
     if params[:token].present?
       invitation = Invitation.find_by(token: params[:token])
       if invitation
@@ -57,25 +63,11 @@ class UsersController < ApplicationController
   end
 
   def charge_user_with_stripe
-    
-    # Set your secret key: remember to change this to your live secret key in production
-    # See your keys here https://dashboard.stripe.com/account/apikeys
-    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-
-    # Get the credit card details submitted by the form
     token = params[:stripeToken]
-    # Create the charge on Stripe's servers - this will charge the user's card
-    begin
-      charge = Stripe::Charge.create(
+    charge = StripeWrapper::Charge.create(
         :amount => 3000, # amount in cents, again
-        :currency => "usd",
         :source => token,
         :description => "Signs up for #{@user.full_name}"
-      )
-    rescue Stripe::CardError => e
-      # The card has been declined
-      flash[:danger] = e.message
-    end
+    )
   end
-
 end
