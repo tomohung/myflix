@@ -12,12 +12,12 @@ class UsersController < ApplicationController
       charge = charge_user_with_stripe
       if charge.success?
         @user.save
-        set_following_relationship
+        set_invitation_following_relationship
         AppMailer.delay.send_welcome_email(@user)
         session[:user_id] = @user.id
         redirect_to home_path
       else
-        flash[:danger] =  charge.error_message
+        flash.now[:danger] =  charge.error_message
         render :new
       end
     else
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:full_name, :password, :email)
   end
 
-  def set_following_relationship
+  def set_invitation_following_relationship
     if params[:token].present?
       invitation = Invitation.find_by(token: params[:token])
       if invitation
@@ -63,7 +63,6 @@ class UsersController < ApplicationController
   end
 
   def charge_user_with_stripe
-    StripeWrapper.set_api_key
     token = params[:stripeToken]
     charge = StripeWrapper::Charge.create(
         :amount => 3000, # amount in cents, again
