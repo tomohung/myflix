@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=3000&currency=usd&source=tok_15u0jfLCTUylKIRlthv2WHkC&description=Signs%20up%20for%20Fred
+      string: amount=3000&currency=usd&source=tok_15uacvLCTUylKIRl1PCO7fSS&description=Signs%20up%20for%20Fred
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 21 Apr 2015 12:44:20 GMT
+      - Thu, 23 Apr 2015 03:03:46 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_F8cx6DErymZXuanq
+      - req_VQoqzNySmDtjxYWS
       Stripe-Version:
       - '2015-04-07'
     body:
@@ -60,9 +60,9 @@ http_interactions:
             "message": "Your card was declined.",
             "type": "card_error",
             "code": "card_declined",
-            "charge": "ch_15u0jgLCTUylKIRlR5Vrp6Ks"
+            "charge": "ch_15uacwLCTUylKIRlW0obDjoV"
           }
         }
     http_version: 
-  recorded_at: Tue, 21 Apr 2015 12:44:20 GMT
+  recorded_at: Thu, 23 Apr 2015 03:03:46 GMT
 recorded_with: VCR 2.9.3

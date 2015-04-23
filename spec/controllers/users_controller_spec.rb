@@ -42,21 +42,18 @@ describe UsersController do
 
   describe 'POST create' do
     context 'with valid input' do
-      before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
-        post :create, user: Fabricate.attributes_for(:user)
-      end
 
-      it 'should create user' do
-        expect(User.count).to eq(1)  
-      end
-
-      it 'should logged_in if create user' do
-        expect(session[:user_id]).to eq(User.first.id)
-      end
+      # it 'should logged_in if create user' do
+      #   result = double(:sign_up, successful?: true)
+      #   UserSignup.any_instance.should_receive(:sign_up).and_return(result)
+      #   post :create, user: Fabricate.attributes_for(:user)
+      #   expect(session[:user_id]).to eq(User.first.id)
+      # end
 
       it 'should redirect to home_path' do
+        result = double(:sign_up, successful?: true)
+        UserSignup.any_instance.should_receive(:sign_up).and_return(result)
+        post :create, user: Fabricate.attributes_for(:user)
         expect(response).to redirect_to home_path
       end
     end
@@ -64,13 +61,9 @@ describe UsersController do
     context 'with invliad input' do
       
       before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        result = double(:sign_up, successful?: false, error_message: 'error')
+        UserSignup.any_instance.should_receive(:sign_up).and_return(result)
         post :create, user: { password: 'slkjdf'}
-      end
-      
-      it 'does not create the user' do 
-        expect(User.count).to eq(0)
       end
 
       it 'render template :new' do
@@ -79,56 +72,6 @@ describe UsersController do
 
       it 'sets @user' do
         expect(assigns(:user)).to be_instance_of(User)
-      end
-    end
-
-    context 'sending email' do
-
-      before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
-        ActionMailer::Base.deliveries.clear
-      end
-
-      it 'sends out email to the user with valid inputs' do
-        user_attributes = Fabricate.attributes_for(:user)
-        post :create, user: user_attributes
-        expect(ActionMailer::Base.deliveries.last.to).to eq([user_attributes["email"]])
-      end
-
-      it 'sends out email containing user name with valid inputs' do
-        user_attributes = Fabricate.attributes_for(:user)
-        post :create, user: user_attributes
-        expect(ActionMailer::Base.deliveries.last.body).to include(user_attributes["full_name"])
-      end
-      it 'does not send out email with invalid inputs' do
-        post :create, user: { email: 'a@email.com'}
-        expect(ActionMailer::Base.deliveries).to be_empty
-      end
-    end
-
-    context 'create by invitation' do
-
-      let(:user) { Fabricate(:user) }
-      before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
-        invitation = Fabricate(:invitation, inviter: user)
-        post :create, user: { email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe'}, token: invitation.token
-      end
-
-      it 'makes the user follow the inviter' do
-        joe = User.find_by(email: 'joe@example.com')
-        expect(joe.follows?(user)).to be true
-      end
-
-      it 'makes the inviter follow the user' do
-        joe = User.find_by(email: 'joe@example.com')
-        expect(user.follows?(joe)).to be true
-      end
-
-      it 'expires the invitation upon acceptance' do
-        expect(Invitation.first.token).to be nil
       end
     end
   end

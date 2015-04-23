@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=3000&currency=usd&source=tok_15u0jdLCTUylKIRl7Ts5vss0&description=Signs%20up%20for%20Fred
+      string: amount=3000&currency=usd&source=tok_15uactLCTUylKIRlNYXokDGf&description=Signs%20up%20for%20Fred
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 21 Apr 2015 12:44:18 GMT
+      - Thu, 23 Apr 2015 03:03:45 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_O1J57xWHrvZ04mhH
+      - req_nuOC76RawhNLJP3V
       Stripe-Version:
       - '2015-04-07'
       Strict-Transport-Security:
@@ -58,9 +58,9 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_15u0jeLCTUylKIRllXKn88kd",
+          "id": "ch_15uacuLCTUylKIRlBhh2ejjb",
           "object": "charge",
-          "created": 1429620258,
+          "created": 1429758224,
           "livemode": false,
           "paid": true,
           "status": "succeeded",
@@ -68,7 +68,7 @@ http_interactions:
           "currency": "usd",
           "refunded": false,
           "source": {
-            "id": "card_15u0jdLCTUylKIRlACFnQ1J9",
+            "id": "card_15uactLCTUylKIRlAu30GEvw",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -92,7 +92,7 @@ http_interactions:
             "customer": null
           },
           "captured": true,
-          "balance_transaction": "txn_15u0jeLCTUylKIRlQ3Lwqjgp",
+          "balance_transaction": "txn_15uacuLCTUylKIRlOncb4cEP",
           "failure_message": null,
           "failure_code": null,
           "amount_refunded": 0,
@@ -111,10 +111,10 @@ http_interactions:
             "object": "list",
             "total_count": 0,
             "has_more": false,
-            "url": "/v1/charges/ch_15u0jeLCTUylKIRllXKn88kd/refunds",
+            "url": "/v1/charges/ch_15uacuLCTUylKIRlBhh2ejjb/refunds",
             "data": []
           }
         }
     http_version: 
-  recorded_at: Tue, 21 Apr 2015 12:44:18 GMT
+  recorded_at: Thu, 23 Apr 2015 03:03:44 GMT
 recorded_with: VCR 2.9.3
