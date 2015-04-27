@@ -45,15 +45,15 @@ describe UsersController do
 
       it 'should logged_in if create user' do
         result = double(:sign_up, successful?: true)
-        UserSignup.any_instance.should_receive(:sign_up).and_return(result)
-        User.any_instance.should_receive(:id).and_return(1)
+        expect_any_instance_of(UserSignup).to receive(:sign_up).and_return(result)
+        expect_any_instance_of(User).to receive(:id).and_return(1)
         post :create, user: Fabricate.attributes_for(:user)
         expect(session[:user_id]).to eq(1)
       end
 
       it 'should redirect to home_path' do
         result = double(:sign_up, successful?: true)
-        UserSignup.any_instance.should_receive(:sign_up).and_return(result)
+        expect_any_instance_of(UserSignup).to receive(:sign_up).and_return(result)
         post :create, user: Fabricate.attributes_for(:user)
         expect(response).to redirect_to home_path
       end
@@ -63,7 +63,7 @@ describe UsersController do
       
       before do
         result = double(:sign_up, successful?: false, error_message: 'error')
-        UserSignup.any_instance.should_receive(:sign_up).and_return(result)
+        expect_any_instance_of(UserSignup).to receive(:sign_up).and_return(result)
         post :create, user: { password: 'slkjdf'}
       end
 
