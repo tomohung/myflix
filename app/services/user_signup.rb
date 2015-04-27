@@ -8,7 +8,7 @@ class UserSignup
 
   def sign_up(stripe_token = nil, invitation_token = nil)
     if @user.valid?      
-      charge = charge_user_with_stripe(stripe_token)
+      charge = customer_charge_user_with_stripe(stripe_token)
       if charge.success?
         @user.save
         set_invitation_following_relationship(invitation_token)
@@ -48,9 +48,16 @@ private
 
   def charge_user_with_stripe(token)
     charge = StripeWrapper::Charge.create(
-        amount: 3000, # amount in cents, again
-        source: token,
-        description: "Signs up for #{@user.full_name}"
+      amount: 3000, # amount in cents, again
+      source: token,
+      description: "Signs up for #{@user.full_name}"
+    )
+  end
+
+  def customer_charge_user_with_stripe(token)
+    StripeWrapper::Charge.customer(
+      source: token,
+      email: @user.email
     )
   end
 end
