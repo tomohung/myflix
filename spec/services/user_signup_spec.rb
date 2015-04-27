@@ -5,7 +5,7 @@ describe UserSignup do
     context 'with valid personal info and card' do
       before do
         charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
       end
 
       it 'returns successful' do
@@ -24,7 +24,7 @@ describe UserSignup do
     context 'with invliad personal info and card' do
       before do
         charge = double(:charge, success?: false, error_message: 'invalid card')
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
       end
 
       it 'returns not successful' do
@@ -44,7 +44,7 @@ describe UserSignup do
 
       before do
         charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
         ActionMailer::Base.deliveries.clear
       end
 
@@ -71,7 +71,7 @@ describe UserSignup do
       let(:user) { Fabricate(:user) }
       before do
         charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
         invitation = Fabricate(:invitation, inviter: user)
         joe = User.new(email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe')
         UserSignup.new(joe).sign_up("stripe_token", invitation.token)
