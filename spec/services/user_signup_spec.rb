@@ -4,8 +4,8 @@ describe UserSignup do
   describe "#sign_up" do
     context 'with valid personal info and card' do
       before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        charge = double(:charge, success?: true, customer_token: "abcd")
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
       end
 
       it 'returns successful' do
@@ -19,12 +19,18 @@ describe UserSignup do
         result = UserSignup.new(user).sign_up("stripe_token")
         expect(User.count).to eq(1)
       end
+
+      it 'stores customer token from stripe' do
+        user = Fabricate.build(:user)
+        result = UserSignup.new(user).sign_up("stripe_token")
+        expect(User.first.customer_token).to eq("abcd")        
+      end
     end
 
     context 'with invliad personal info and card' do
       before do
         charge = double(:charge, success?: false, error_message: 'invalid card')
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
       end
 
       it 'returns not successful' do
@@ -43,8 +49,8 @@ describe UserSignup do
     context 'sending email' do
 
       before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        charge = double(:charge, success?: true, customer_token: "abcd")
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
         ActionMailer::Base.deliveries.clear
       end
 
@@ -70,8 +76,8 @@ describe UserSignup do
 
       let(:user) { Fabricate(:user) }
       before do
-        charge = double(:charge, success?: true)
-        StripeWrapper::Charge.stub(:create).and_return(charge)
+        charge = double(:charge, success?: true, customer_token: "abcd")
+        StripeWrapper::Charge.stub(:customer).and_return(charge)
         invitation = Fabricate(:invitation, inviter: user)
         joe = User.new(email: 'joe@example.com', password: 'joejoejoe', full_name: 'Joe')
         UserSignup.new(joe).sign_up("stripe_token", invitation.token)

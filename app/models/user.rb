@@ -11,10 +11,7 @@ class User < ActiveRecord::Base
   has_many :queue_items, ->{order(:position)}
   has_many :following_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :leading_relationships, class_name: 'Relationship', foreign_key: :leader_id
-
-  def admin?
-    admin
-  end
+  has_many :payments
 
   def to_param
     token
@@ -42,4 +39,7 @@ class User < ActiveRecord::Base
     Relationship.create(leader: another_user, follower: self) if can_follow?(another_user)
   end
 
+  def deactivate!
+    update_column(:active, false)
+  end
 end

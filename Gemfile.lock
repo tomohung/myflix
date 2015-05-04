@@ -331,6 +331,9 @@ GEM
       json (~> 1.8.1)
       mime-types (>= 1.25, < 3.0)
       rest-client (~> 1.4)
+    stripe_event (1.5.0)
+      activesupport (>= 3.1)
+      stripe (~> 1.6)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -400,6 +403,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   stripe
+  stripe_event
   therubyracer
   thin
   uglifier

@@ -62,7 +62,7 @@ describe UsersController do
     context 'with invliad input' do
       
       before do
-        result = double(:sign_up, successful?: false, error_message: 'error')
+        result = double(:sign_up, successful?: false, error_message: 'error', )
         expect_any_instance_of(UserSignup).to receive(:sign_up).and_return(result)
         post :create, user: { password: 'slkjdf'}
       end
