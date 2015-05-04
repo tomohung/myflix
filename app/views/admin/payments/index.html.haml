@@ -20,5 +20,5 @@
                 %tr
                   %td= payment.user.full_name
                   %td= payment.user.email
-                  %td= payment.amount_in_dollars
+                  %td= payment_amount_in_dollars(payment.amount)
                   %td= payment.reference_id

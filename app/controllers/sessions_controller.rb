@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         redirect_to sign_in_path
       end
     else
-      flash[:error] = 'Invalid username or password.'
+      flash[:danger] = 'Invalid username or password.'
       redirect_to sign_in_path
     end
   end

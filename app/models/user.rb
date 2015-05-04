@@ -13,10 +13,6 @@ class User < ActiveRecord::Base
   has_many :leading_relationships, class_name: 'Relationship', foreign_key: :leader_id
   has_many :payments
 
-  def admin?
-    admin
-  end
-
   def to_param
     token
   end
@@ -43,12 +39,7 @@ class User < ActiveRecord::Base
     Relationship.create(leader: another_user, follower: self) if can_follow?(another_user)
   end
 
-  def deactivated!
+  def deactivate!
     update_column(:active, false)
   end
-
-  def active?
-    active
-  end
-
 end

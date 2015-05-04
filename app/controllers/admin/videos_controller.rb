@@ -1,7 +1,4 @@
-class Admin::VideosController < ApplicationController
-
-  before_filter :require_logged_in
-  before_filter :require_admin
+class Admin::VideosController < AdminController
 
   def new
     @video = Video.new
