@@ -46,4 +46,12 @@ describe User do
     end
   end
 
+  describe '#deactivated!' do
+    it 'deactivates an active user' do
+      user = Fabricate(:user, active: true)
+      user.deactivated!
+      expect(user).not_to be_active
+    end
+  end
+
 end

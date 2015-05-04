@@ -43,4 +43,12 @@ class User < ActiveRecord::Base
     Relationship.create(leader: another_user, follower: self) if can_follow?(another_user)
   end
 
+  def deactivated!
+    update_column(:active, false)
+  end
+
+  def active?
+    active
+  end
+
 end
