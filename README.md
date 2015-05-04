@@ -2,7 +2,7 @@
 
 This project is activated by [Tealeaf Academy](http://www.gotealeaf.com/curriculum#!production-apps) Course 3.
 
-It took me about 2 month to complete this project( 2015.03 ~ 2015.04).
+It took me about 8 weeks to complete this project( 2015.03 ~ 2015.04).
 
 == What this project for
 
