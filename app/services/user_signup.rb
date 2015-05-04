@@ -40,9 +40,6 @@ private
         invitation.inviter.follow(@user)
         @user.follow(invitation.inviter)
         invitation.update(token: nil)        
-      else
-        redirect_to expired_token_path
-        return
       end
     end
   end
