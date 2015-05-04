@@ -1,10 +1,10 @@
-== Intro
+# Intro
 
 This project is activated by [Tealeaf Academy](http://www.gotealeaf.com/curriculum#!production-apps) Course 3.
 
 It took me about 8 weeks to complete this project( 2015.03 ~ 2015.04).
 
-== What this project for
+# What this project for
 
 A website offer user to sign up / sign in, to order videos. User can add vidoe to queue list, also can track other users queue list.
 
@@ -16,25 +16,29 @@ Use Stripe for payments.
 
 Finally, Administrator can add new video infomations including video path and pitures. And review recent payments.
 
-== What I learned in this project
+# What I learned in this project
 
-=== PROCESS
+### PROCESS
+
 Ideation, wireframes, mockups, design and development
 Build from the application core to the peripherals
 Incremental feature building
 
-=== TEAM COLLABORATION
+### TEAM COLLABORATION
+
 Feature development with Git branching
 Github flow
 Code reviews
 
-=== FRONT-END FRAMEWORKS
+### FRONT-END FRAMEWORKS
+
 HAML
 SASS
 Twitter Bootstrap
 jQuery
 
-=== TESTING
+### TESTING
+
 Unit, functional, and integration tests
 Development and test databases
 TDD and red / green / refactor
@@ -55,7 +59,8 @@ Message expectations
 Mocking
 Stubs and mocks
 
-=== BUILDING APPLICATIONS
+### BUILDING APPLICATIONS
+
 Seeding data
 Search
 Sending emails
@@ -77,7 +82,7 @@ Recurring billing
 Handle callback events
 Beyond MVC
 
-=== PRODUCTION APPLICATION CONSIDERATIONS
+### PRODUCTION APPLICATION CONSIDERATIONS
 Deploy with procfile and foreman
 Deploy with background jobs
 Secure sensitive data
