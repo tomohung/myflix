@@ -1,22 +1,34 @@
 # Intro
 
-This project is activated by [Tealeaf Academy](http://www.gotealeaf.com/curriculum#!production-apps) Course 3.
+website: https://tomo-myflix.herokuapp.com/
 
-It took me about 8 weeks to complete this project( 2015.03 ~ 2015.04).
+This project is activated by [Tealeaf Academy Course 3](http://www.gotealeaf.com/curriculum#!production-apps).
 
-# What this project for
+It took me about 8 weeks to complete this project(2015.03 ~ 2015.04).
 
-A website offer user to sign up / sign in, to order videos. User can add vidoe to queue list, also can track other users queue list.
+# What is this project for
 
-User can rank videos and leave comments to videos. User also can invite friends to join this website through email.
+A website offer user to sign up / sign in, and order videos. 
+
+User can add video to queue list, also can track other users queue list, or reorder list.
+
+User can rank videos and leave comments to videos. 
+
+User also can invite friends to join this website through email.
 
 A search bar for searching videos title.
 
-Use Stripe for payments.
+[Stripe](http://stripe.com) for credit card payments.
 
 Finally, Administrator can add new video infomations including video path and pitures. And review recent payments.
 
 # What I learned in this project
+
+This project is built by TDD and GitHub work flow.
+
+Tests are including models, controllers, features, services.
+
+Using Circle CI to do Continous Integration and Continous Delievery.
 
 ### PROCESS
 
