@@ -20,5 +20,12 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
   end  
-    
+
+  def require_admin
+    if !current_user.admin?
+      flash[:danger] = 'You do not have access right.'
+      redirect_to home_path
+    end
+  end
+      
 end
