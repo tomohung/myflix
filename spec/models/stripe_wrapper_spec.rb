@@ -57,6 +57,12 @@ describe StripeWrapper, vcr: true do
       expect(charge.error_message).to be_present
     end
 
+    it 'returns the customer token for a valid card' do
+      user = Fabricate(:user)
+      charge = StripeWrapper::Charge.customer(source: valid_token, email: user.email)
+      expect(charge.customer_token).to be_present
+    end
+
   end
 
 end

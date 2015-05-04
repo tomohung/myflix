@@ -10,6 +10,7 @@ class UserSignup
     if @user.valid?      
       charge = customer_charge_user_with_stripe(stripe_token)
       if charge.success?
+        @user.customer_token = charge.customer_token
         @user.save
         set_invitation_following_relationship(invitation_token)
         AppMailer.delay.send_welcome_email(@user)

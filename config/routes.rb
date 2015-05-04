@@ -42,4 +42,6 @@ Myflix::Application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy'
   resources :sessions, only: [:create]
 
+  mount StripeEvent::Engine, at: '/stripe_events'
+
 end

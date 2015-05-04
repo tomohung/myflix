@@ -42,6 +42,9 @@ module StripeWrapper
       response.message
     end
 
+    def customer_token
+      response.id
+    end
 
   end
 
