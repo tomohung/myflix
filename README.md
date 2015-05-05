@@ -1,3 +1,5 @@
+<img src="https://circleci.com/gh/tomohung/myflix.png?circle-token=a7c782deb0d0022335fa1f095e268bb44eb4cab8">
+
 # Intro
 
 website: https://tomo-myflix.herokuapp.com/
