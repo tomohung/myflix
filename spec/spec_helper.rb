@@ -46,6 +46,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
+  config.before(:each, elasticsearch: true) do
+    Video.__elastcisearch__.create_index! force:true
+  end
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.

@@ -1,6 +1,8 @@
 machine:
   ruby:
     version: 2.1.5
+  sercies:
+    - elasticsearch
 deployment:
   production:
     branch: master
