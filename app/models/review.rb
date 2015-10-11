@@ -2,5 +2,5 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :video, touch: true
 
-  validates_presence_of :context, :rating
+  validates_presence_of :context, on: :create
 end

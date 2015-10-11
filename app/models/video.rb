@@ -26,7 +26,7 @@ class Video < ActiveRecord::Base
       query: {
         multi_match: {
           query: query,
-          fields: ["title^100", "description^50"],
+          fields: ["title", "description"],
           operator: "and"
         }
       }
