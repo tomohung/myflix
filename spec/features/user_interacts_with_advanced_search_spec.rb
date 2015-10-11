@@ -32,6 +32,7 @@ feature "User interacts with advanced search", :elasticsearch do
     expect(page).to have_content("Bride Wars")
     expect(page).to have_no_content("Star")
   end
+
 end
 
 def refresh_index
