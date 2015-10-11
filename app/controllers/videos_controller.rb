@@ -15,4 +15,8 @@ class VideosController < ApplicationController
     @results = Video.search_by_title(params[:search_term])
   end
 
+  def advanced_search
+    @results = Video.search(params[:query]).records.to_a if params[:query]
+  end
+
 end
