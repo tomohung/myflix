@@ -32,7 +32,7 @@ class Video < ActiveRecord::Base
       }
     }
     if query.present? && options[:review]
-      search_definition[:query][:multi_match][fields] << "reviews.body"
+      search_definition[:query][:multi_match][fields] << "reviews.context"
     end
 
     __elasticsearch__.search(search_definition)
