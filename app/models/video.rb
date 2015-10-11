@@ -31,8 +31,8 @@ class Video < ActiveRecord::Base
         }
       }
     }
-    if query.present? && options[:review]
-      search_definition[:query][:multi_match][fields] << "reviews.context"
+    if query.present? && options[:reviews]
+      search_definition[:query][:multi_match][:fields] << "reviews.context"
     end
 
     __elasticsearch__.search(search_definition)
@@ -42,7 +42,7 @@ class Video < ActiveRecord::Base
     as_json(
       only: [:title, :description],
       include: { 
-        reviews: { only: [:body] }
+        reviews: { only: [:context] }
       }
     )
   end
